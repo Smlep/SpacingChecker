@@ -15,6 +15,11 @@ Supported languages
 - French
 - English
 
+Exit status
+===========
+- 0: No error found
+- 1: One or more errors were found
+
 Misc
 ====
 Make sure that grep is installed and supports -n and --colour or TypoChecker will not work.

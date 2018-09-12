@@ -4,7 +4,7 @@ if [ $1 == '--help' ]; then
   exit 2
 fi
 if [ $# -lt 2 ]; then
-  echo "Usage: "$0" languagefile file"
+  echo "Usage: "$0" language.lg file"
   echo "See $0 --help"
   exit 1
 fi

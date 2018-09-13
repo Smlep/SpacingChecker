@@ -8,7 +8,21 @@ if [ $# -lt 2 ]; then
   echo "See $0 --help"
   exit 1
 fi
-
+if [ ! -f $1 ]; then
+  echo "$1 does not exist"
+  exit 1
+fi
+if [ ! -f $2 ]; then
+  echo "$2 does not exist"
+  exit 1
+fi
+ext=$(echo "$1" | sed 's/.*\(...\)/\1/')
+if [ $ext != '.lg' ]; then
+  echo "Bad language file extension"
+  echo "Expected: .lg"
+  echo "Has: "$ext
+  exit 1
+fi
 code=0
 
 while IFS='' read -r line || [[ -n "$line" ]]; do

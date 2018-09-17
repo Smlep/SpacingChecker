@@ -43,7 +43,7 @@ code=0
 
 # file checking
 while IFS='' read -r line || [[ -n "$line" ]]; do
-    grep -n --colour "$line" $2
+    grep -n -E --colour "$line" $2
     if [ $? -ne 1 ]; then
       code=1
     fi

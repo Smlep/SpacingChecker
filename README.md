@@ -8,7 +8,8 @@ Usage
 ```
 
 
-Languages files are in the languages/ directory.
+Languages files are in the *languages/* directory.
+
 *file* is the file to check.
 
 Errors will be printed as a result.

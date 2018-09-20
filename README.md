@@ -19,6 +19,10 @@ Supported languages
 - French
 - English
 
+Feel free to create a Pull Request with new languages files.
+
+You can also create new issues for languages not done yet.
+
 Exit status
 ===========
 - 0: No error found

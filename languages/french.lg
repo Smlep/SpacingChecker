@@ -1,8 +1,16 @@
+# Name: French
+# Short: fr
+
+# Classic rules
  [,\.]
 [^ ][?!;]
 [?!;][^[:space:]"]
 \.[^[:space:]"\.]
+
+# Ellipses
 [^\.]\.\.[^\.]
+
+# Hours and decimal numbers
 [,:][^[:space:]0-9"]
 [^0-9][,:][0-9]
 [^0-9 ]:

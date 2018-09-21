@@ -43,6 +43,9 @@ code=0
 
 # file checking
 while IFS='' read -r line || [[ -n "$line" ]]; do
+    if [ "${line:0:1}" == '#' ]; then
+      continue
+    fi 
     grep -n -E --colour "$line" $2
     if [ $? -ne 1 ]; then
       code=1

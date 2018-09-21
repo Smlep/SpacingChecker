@@ -1,5 +1,13 @@
+# Name: English (GB)
+# Short: gb
+
+# Classic rules
  [?!;:\.,]
 [?!;:,][^[:space:]"]
+
+Decimal numbers and hours
 \.[^[:space:]0-9"\.]
 [^0-9]\.[0-9]
+
+# Ellipses
 [^\.]\.\.[^\.]

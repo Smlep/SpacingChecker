@@ -43,7 +43,7 @@ code=0
 
 # file checking
 while IFS='' read -r line || [[ -n "$line" ]]; do
-    if [ "${line:0:1}" == '#' ]; then
+    if [ "${line:0:1}" == '#' ] || [ "${#line}" -eq 0 ]; then
       continue
     fi 
     grep -n -E --colour "$line" $2

@@ -18,6 +18,7 @@ Supported languages
 ===================
 - French
 - English
+- Italian
 
 Feel free to create a Pull Request with new languages files.
 

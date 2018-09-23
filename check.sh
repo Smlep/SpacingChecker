@@ -32,20 +32,41 @@ if [ $# -lt 2 ]; then
   exit 1
 fi
 
-# language file existence
-if [ ! -f $1 ]; then
-  echo "$1 does not exist"
-  exit 1
-fi
+language_file='error'
+ext=$(echo "$1" | sed 's/.*\(...\)/\1/')
+echo "Looking for a language file..."
+if [ $ext == '.lg' ]; then
+  language_file=$1
+  if [ -f $1 ]; then
+    echo "Loading $1"
+  else
+    echo "$1 does not exist"
+    exit 1
+  fi
+else
+  echo "Searching files corresponding to $1"
+  for lg_file in $LANGUAGE_DIR
+  do  
+    name_line=$(head -n 1 $lg_file)
+    name="${name_line##*: }"
 
-# file to check existence
-if [ ! -f $2 ]; then
-  echo "$2 does not exist"
-  exit 1
+    short_line=$(sed '2q;d' $lg_file)
+    short="${short_line##*: }"
+    
+    if [ $short == $1 ]; then
+      language_file=$lg_file
+      echo "Loading $name"
+      break
+    fi
+  done
+  if [ $language_file == 'error' ]; then
+    echo "No language file were found"
+    exit 1
+  fi
 fi
 
 # language file extension
-ext=$(echo "$1" | sed 's/.*\(...\)/\1/')
+ext=$(echo "$language_file" | sed 's/.*\(...\)/\1/')
 if [ $ext != '.lg' ]; then
   echo "Bad language file extension"
   echo "Expected: .lg"
@@ -53,8 +74,14 @@ if [ $ext != '.lg' ]; then
   exit 1
 fi
 
-if [ -z "$(tail -c 2 "$1")" ]; then
+if [ -z "$(tail -c 2 "$language_file")" ]; then
   echo "Language file contains an empty line"
+  exit 1
+fi
+
+# file to check existence
+if [ ! -f $2 ]; then
+  echo "$2 does not exist"
   exit 1
 fi
 
@@ -69,6 +96,6 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     if [ $? -ne 1 ]; then
       code=1
     fi
-done < "$1"
+done < "$language_file"
 
 exit $code

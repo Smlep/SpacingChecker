@@ -42,6 +42,7 @@ Exit status
 ===========
 - 0: No error found
 - 1: One or more errors were found
+- 2: ```-l```, ```-h```, ```--lg```, ```--help``` or ```--languages``` were used
 
 Misc
 ====

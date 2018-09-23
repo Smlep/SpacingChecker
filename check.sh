@@ -1,6 +1,7 @@
 #!/bin/bash
 
-LANGUAGE_DIR='languages/*'
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+LANGUAGE_DIR=$DIR'/languages/*'
 
 # help option
 if [ $1 == '--help' ] || [ $1 == '-h' ]; then

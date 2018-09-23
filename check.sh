@@ -1,6 +1,17 @@
 #!/bin/bash
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+DIR=''
+cd ..
+which -s $0
+if [ $? -eq 0 ]; then
+  cd - > /dev/null
+  SCRIPT=$(readlink $(which $0))
+  DIR=`dirname $SCRIPT`
+else
+  cd - > /dev/null
+  DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+fi
+
 LANGUAGE_DIR=$DIR'/languages/*'
 
 # good parameters number

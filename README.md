@@ -4,15 +4,26 @@ Here is a simple bash program which checks if spacing around punctuation is resp
 Usage
 =====
 ```
-./check.sh language.lg file
+./check.sh language file
 ```
 
-
+*language* can be either a shortname (see ```./check.sh -l```) or a language file.
 Languages files are in the *languages/* directory.
 
 *file* is the file to check.
 
 Errors will be printed as a result.
+
+Example
+=======
+```
+./check.sh us tests/file.txt
+
+Looking for a language file...
+Searching files corresponding to us
+Loading English (US)
+1:Here is an english error !
+```
 
 Options
 =======

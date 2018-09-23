@@ -3,6 +3,13 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 LANGUAGE_DIR=$DIR'/languages/*'
 
+# good parameters number
+if [ $# -lt 1 ]; then
+  echo "Usage: "$0" language.lg file"
+  echo "See $0 --help"
+  exit 1
+fi
+
 # help option
 if [ $1 == '--help' ] || [ $1 == '-h' ]; then
   cat README.md

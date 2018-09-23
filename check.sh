@@ -1,8 +1,27 @@
 #!/bin/bash
 
+LANGUAGE_DIR='languages/*'
+
 # help option
-if [ $1 == '--help' ]; then
+if [ $1 == '--help' ] || [ $1 == '-h' ]; then
   cat README.md
+  exit 2
+fi
+
+# show languages option
+
+if [ "$1" == '--languages' -o "$1" == '-l' -o $1 == '--lg' ]; then
+  echo "Short names for available languages:"
+  for lg_file in $LANGUAGE_DIR
+  do
+    name_line=$(head -n 1 $lg_file)
+    name="${name_line##*: }"
+
+    short_line=$(sed '2q;d' $lg_file)
+    short="${short_line##*: }"
+
+    echo $short": "$name
+  done
   exit 2
 fi
 

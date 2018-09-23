@@ -14,6 +14,20 @@ Languages files are in the *languages/* directory.
 
 Errors will be printed as a result.
 
+Options
+=======
+- ```-h```, ```--help``` display help
+- ```-l```, ```--lg```, ```--languages``` display available languages and their shortnames
+```
+./check.sh -l
+
+Short names for available languages:
+fr: French
+gb: English (GB)
+it: Italian
+us: English (US)
+```
+
 Supported languages
 ===================
 - French

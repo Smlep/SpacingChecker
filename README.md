@@ -8,7 +8,7 @@ Usage
 ```
 
 *language* can be either a shortname (see ```./check.sh -l```) or a language file.
-Languages files are in the *languages/* directory.
+Language files are in the *languages/* directory.
 
 *file* is the file to check.
 

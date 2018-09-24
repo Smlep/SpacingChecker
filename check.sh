@@ -102,19 +102,43 @@ check_file(){
   return $code
 }
 
+POSITIONAL=()
+HELP=0
+LANGUAGE_HELP=0
+SILENT=0
+
+while [[ $# -gt 0 ]]
+do
+key="$1"
+case $key in
+    -h|--help)
+    HELP=1
+    shift # past argument
+    ;;  
+    -l|--lg|--languages)
+    LANGUAGE_HELP=1
+    shift # past argument
+    ;;  
+    -s|--silent)
+    SILENT=1
+    shift # past value
+    ;;  
+    *)    # unknown option
+    POSITIONAL+=("$1") # save it in an array for later
+    shift # past argument
+    ;;  
+esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
 
 
-# good parameter count
-if [ $# -lt 1 ]; then
-  usage_error
-fi
 
 # help option
-if [ $1 == '--help' ] || [ $1 == '-h' ]; then
+if [ $HELP -ne 0 ]; then
   help_opt
 fi
 
-if [ "$1" == '--languages' -o "$1" == '-l' -o $1 == '--lg' ]; then
+if [ $LANGUAGE_HELP -ne 0 ]; then
   language_help
 fi
 

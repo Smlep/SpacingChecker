@@ -88,6 +88,8 @@ find_language_file(){
 }
 
 check_file(){
+  echo
+  echo "Checking $2"
   code=0
 
   while IFS='' read -r line || [[ -n "$line" ]]; do
@@ -155,7 +157,13 @@ fi
 
 lg_file='error'
 find_language_file $1 $lg_file
-check_file $lg_file $2
-ex_status=$?
+ex_status=0
+i=0
+while [[ $# -gt 1 ]]; do
+  check_file $lg_file $2
+  ex_status=$(($? || $ex_status))
+  ((i++))
+  shift
+done
 
 exit $ex_status

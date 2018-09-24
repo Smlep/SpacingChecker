@@ -158,11 +158,9 @@ fi
 lg_file='error'
 find_language_file $1 $lg_file
 ex_status=0
-i=0
 while [[ $# -gt 1 ]]; do
   check_file $lg_file $2
   ex_status=$(($? || $ex_status))
-  ((i++))
   shift
 done
 

@@ -89,19 +89,27 @@ find_language_file(){
 
 check_file(){
   echo
-  echo "Checking $2"
-  code=0
+  echo "Checking $2:"
+  count=0
 
   while IFS='' read -r line || [[ -n "$line" ]]; do
     if [ "${line:0:1}" == '#' ] || [ "${#line}" -eq 0 ]; then
       continue
     fi 
     grep -n -E --colour "$line" $2
-    if [ $? -ne 1 ]; then
-      code=1
-    fi
+    count=$((count + $(grep -c -E "$line" $2)))
   done < "$1"
-  return $code
+  echo
+  if [ $count -eq 0 ]; then
+    echo "No error found in $2"
+    return 0
+  elif [ $count -eq 1 ]; then
+    echo "1 error found in $2"
+    return 1
+  else
+    echo "$count errors found in $2"
+    return 1
+  fi
 }
 
 POSITIONAL=()

@@ -29,6 +29,7 @@ Options
 =======
 - ```-h```, ```--help``` display help
 - ```-l```, ```--lg```, ```--languages``` display available languages and their shortnames
+- ```-s```, ```--silent``` do not write anything to standard output
 ```
 ./check.sh -l
 

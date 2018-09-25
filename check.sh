@@ -142,7 +142,9 @@ done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
 
-
+if [ $SILENT -ne 0 ]; then
+  exec 1>/dev/null
+fi
 # help option
 if [ $HELP -ne 0 ]; then
   help_opt

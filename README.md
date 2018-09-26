@@ -53,8 +53,9 @@ You can also create new issues for languages not done yet.
 Exit status
 ===========
 - 0: No error found
-- 1: One or more errors were found
+- 1: One or more errors were found while checking
 - 2: ```-l```, ```-h```, ```--lg```, ```--help``` or ```--languages``` were used
+- 3: An error occured which prevented checking
 
 Misc
 ====

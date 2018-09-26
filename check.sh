@@ -22,7 +22,7 @@ help_opt(){
 usage_error(){
   echo "Usage: "$0" language.lg file"
   echo "See $0 --help"
-  exit 1
+  exit 3
 }
 
 # show languages option
@@ -52,7 +52,7 @@ find_language_file(){
       echo "Loading $1"
     else
       echo "$1 does not exist"
-      exit 1
+      exit 3
     fi
   else
     echo "Searching files corresponding to $1"
@@ -72,7 +72,7 @@ find_language_file(){
     done
     if [ $language_file == 'error' ]; then
       echo "No language file were found"
-      exit 1
+      exit 3
     fi
   fi
 
@@ -81,7 +81,7 @@ find_language_file(){
     echo "Bad language file extension"
     echo "Expected: .lg"
     echo "Has: "$ext
-    exit 1
+    exit 3
   fi
 
   eval "$2=$language_file"

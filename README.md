@@ -25,6 +25,25 @@ Loading English (US)
 1:Here is an english error !
 ```
 
+Installation
+============
+You can clone this repository and then use the script with ```./check.sh```:
+```
+$ git clone https://github.com/Smlep/SpacingChecker.git
+$ cd SpacingChecker
+$ ./check.sh us anamericanfile
+...
+```
+
+Or you can install it globally with homebrew and then use it as ```spaceCheck:
+```
+$ brew tap smlep/spacingchecker
+$ brew install spacingchecker
+$ spaceCheck gb abritishfile
+...
+```
+
+
 Options
 =======
 - ```-h```, ```--help``` display help
@@ -56,24 +75,6 @@ Exit status
 - 1: One or more errors were found while checking
 - 2: ```-l```, ```-h```, ```--lg```, ```--help``` or ```--languages``` were used
 - 3: An error occured which prevented checking
-
-Installation
-============
-You can clone this repository and then use the script with ```./check.sh```:
-```
-$ git clone https://github.com/Smlep/SpacingChecker.git
-$ cd SpacingChecker
-$ ./check.sh us anamericanfile
-...
-```
-
-Or you can install it globally with homebrew and then use it as ```spaceCheck:
-```
-$ brew tap smlep/spacingchecker
-$ brew install spacingchecker
-$ spaceCheck gb abritishfile
-...
-```
 
 Misc
 ====

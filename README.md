@@ -1,4 +1,4 @@
-# TypoChecker
+# SpacingChecker
 Here is a simple bash program which checks if spacing around punctuation is respected.
 
 Usage
@@ -59,4 +59,4 @@ Exit status
 
 Misc
 ====
-Make sure that grep is installed and supports -n and --colour or TypoChecker will not work.
+Make sure that grep is installed and supports -n and --colour or SpacingChecker will not work.

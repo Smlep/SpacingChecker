@@ -74,7 +74,7 @@ find_language_file(){
     exit 3
   fi
 
-  eval "$2=$language_file"
+  used_lg_file=$language_file
 }
 
 check_file(){
@@ -155,11 +155,11 @@ if [ ! -f $2 ]; then
   exit 3
 fi
 
-lg_file='error'
-find_language_file $1 $lg_file
+used_lg_file='error'
+find_language_file $1
 ex_status=0
 while [[ $# -gt 1 ]]; do
-  check_file $lg_file $2
+  check_file $used_lg_file $2
   ex_status=$(($? || $ex_status))
   shift
 done

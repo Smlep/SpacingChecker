@@ -4,7 +4,7 @@ Here is a simple bash program which checks if spacing around punctuation is resp
 Usage
 =====
 ```
-./check.sh language file
+$ ./check.sh language file
 ```
 
 *language* can be either a shortname (see ```./check.sh -l```) or a language file.
@@ -17,7 +17,7 @@ Errors will be printed as a result.
 Example
 =======
 ```
-./check.sh us tests/file.txt
+$ ./check.sh us tests/file.txt
 
 Looking for a language file...
 Searching files corresponding to us
@@ -28,10 +28,10 @@ Loading English (US)
 Options
 =======
 - ```-h```, ```--help``` display help
-- ```-l```, ```--lg```, ```--languages``` display available languages and their shortnames
 - ```-s```, ```--silent``` do not write anything to standard output
+- ```-l```, ```--lg```, ```--languages``` display available languages and their shortnames
 ```
-./check.sh -l
+$ ./check.sh -l
 
 Short names for available languages:
 fr: French
@@ -56,6 +56,24 @@ Exit status
 - 1: One or more errors were found while checking
 - 2: ```-l```, ```-h```, ```--lg```, ```--help``` or ```--languages``` were used
 - 3: An error occured which prevented checking
+
+Installation
+============
+You can clone this repository and then use the script with ```./check.sh```:
+```
+$ git clone https://github.com/Smlep/SpacingChecker.git
+$ cd SpacingChecker
+$ ./check.sh us anamericanfile
+...
+```
+
+Or you can install it globally with homebrew and then use it as ```spaceCheck:
+```
+$ brew tap smlep/spacingchecker
+$ brew install spacingchecker
+$ spaceCheck gb abritishfile
+...
+```
 
 Misc
 ====

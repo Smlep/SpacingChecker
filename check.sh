@@ -162,7 +162,7 @@ fi
 # file to check existence
 if [ ! -f $2 ]; then
   echo "$2 does not exist"
-  exit 1
+  exit 3
 fi
 
 lg_file='error'

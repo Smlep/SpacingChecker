@@ -5,7 +5,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 LANGUAGE_DIR=$DIR'/languages/*'
 
 help_opt(){
-  cat README.md
+  cat $DIR'/README.md' || cat $DIR'/../README.md'
   exit 2
 }
 

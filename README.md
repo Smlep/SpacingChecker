@@ -35,7 +35,7 @@ $ ./check.sh us anamericanfile
 ...
 ```
 
-Or you can install it globally with homebrew and then use it as ```spaceCheck:
+Or you can install it globally with homebrew and then use it as ```spaceCheck```:
 ```
 $ brew tap smlep/spacingchecker
 $ brew install spacingchecker

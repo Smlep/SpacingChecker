@@ -14,6 +14,11 @@ Language files are in the *languages/* directory.
 
 Errors will be printed as a result.
 
+You can also use multiple files:
+```
+$ ./check.sh language file1 file2 *.txt
+```
+
 Example
 =======
 ```
